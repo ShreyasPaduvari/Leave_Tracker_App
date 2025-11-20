@@ -1,0 +1,52 @@
+<div class="page">
+  <nav class="navbar">
+    <div class="nav-left"><span class="brand">LeaveTracker</span></div>
+
+    <div class="nav-center">
+      <a routerLink="/employee-dashboard" routerLinkActive="active">Home</a>
+      <a routerLink="/apply-leave" routerLinkActive="active">Leave Request</a>
+    </div>
+
+    <div class="nav-right">
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <div class="user-info">
+      <p><strong>ID:</strong> {{ user?.id }}</p>
+      <p><strong>Name:</strong> {{ user?.username }}</p>
+      <p><strong>Role:</strong> {{ user?.role }}</p>
+      <p><strong>Leave Balance:</strong> {{ user?.leaveBalance }}</p>
+    </div>
+
+    <h2>Your Leave History</h2>
+
+    <!-- ✅ Fixed table structure -->
+    <table class="leave-table">
+      <thead>
+        <tr>
+          <th>Leave Type</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- Display rows if leaveHistory is not empty -->
+        <tr *ngFor="let leave of leaveHistory">
+          <td>{{ leave.type }}</td>
+          <td>{{ leave.start }}</td>
+          <td>{{ leave.end }}</td>
+          <td [ngClass]="leave.status.toLowerCase()">{{ leave.status }}</td>
+        </tr>
+
+        <!-- Show fallback message if empty -->
+        <tr *ngIf="!leaveHistory || leaveHistory.length === 0">
+          <td colspan="4" class="no-data">No leave records found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

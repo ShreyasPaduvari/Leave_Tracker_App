@@ -1,0 +1,25 @@
+<div class="signup-page">
+  <div class="signup-container">
+    <h2>Signup Form</h2>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <label>Username</label>
+      <input type="text" formControlName="username" placeholder="Enter username" />
+      <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error">
+        Username is required.
+      </div>
+
+      <label>Password</label>
+      <input type="password" formControlName="password" placeholder="Enter password" />
+      <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error">
+        Password must be at least 6 characters long.
+      </div>
+
+      <button type="submit" [disabled]="signupForm.invalid">SIGN UP</button>
+
+      <p class="signup-text">
+        Already have an account? <a [routerLink]="['/login']">Login now</a>
+      </p>
+    </form>
+  </div>
+</div>

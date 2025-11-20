@@ -1,0 +1,157 @@
+/* ---------------------------- */
+/* 🌙 Global Styles */
+/* ---------------------------- */
+body {
+  background-color: #0b132b;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center; /* centers horizontally */
+  min-height: 100vh; /* full height for centering */
+}
+
+/* ---------------------------- */
+/* 🌈 Navbar (unchanged) */
+/* ---------------------------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(45deg, #4e9af1, #9c27b0);
+  padding: 12px 40px;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.nav-left .brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-center {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.nav-center a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Logout button (white & clean) */
+.logout-btn {
+  background: white;
+  color: #9c27b0;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #f2e4ff;
+  transform: scale(1.03);
+}
+
+/* ---------------------------- */
+/* 🧩 Page layout for form centering */
+/* ---------------------------- */
+.page {
+  min-height: calc(100vh - 60px);
+  padding-top: 80px; /* controls top spacing under navbar */
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* ---------------------------- */
+/* 📋 Form Container */
+/* ---------------------------- */
+/* ✅ Apply Leave Form Container */
+:host ::ng-deep .apply-container {
+  background-color: white;
+  color: black;
+  width: 360px;
+  margin: auto; /* centers horizontally & vertically with flex parent */
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Heading */
+.apply-container h2 {
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #000;
+}
+
+/* ---------------------------- */
+/* 🧾 Form Styles */
+/* ---------------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-left: 4px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  height: 44px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+/* ---------------------------- */
+/* 🚀 Submit Button */
+/* ---------------------------- */
+.submit-btn {
+  width: 100%;
+  height: 44px;
+  background: linear-gradient(45deg, #4e9af1, #9c27b0);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-top: 5px;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}

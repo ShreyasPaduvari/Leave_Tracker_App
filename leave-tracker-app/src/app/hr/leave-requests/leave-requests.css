@@ -1,0 +1,40 @@
+@import '../../employee/employee-dashboard/employee-dashboard.css';
+
+/* Action button container to space buttons neatly */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* 👈 Creates space between Approve and Reject buttons */
+}
+
+/* Approve / Reject button styles */
+.approve-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.reject-btn {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.approve-btn:hover {
+  background-color: #43a047;
+}
+
+.reject-btn:hover {
+  background-color: #c0392b;
+}

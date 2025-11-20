@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="nav-left"><span class="brand">LeaveTracker</span></div>
+  <div class="nav-center">
+    <a routerLink="/employee-dashboard" routerLinkActive="active">Home</a>
+    <a routerLink="/apply-leave" routerLinkActive="active">Leave Request</a>
+  </div>
+
+  <div class="nav-right">
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</nav>
+
+<!-- NEW: page wrapper to center the card and control spacing -->
+<div class="page">
+  <div class="apply-container">
+    <h2>Apply for Leave</h2>
+
+    <form (ngSubmit)="submitLeave()" class="form">
+      <label>Leave Type</label>
+      <input type="text" [(ngModel)]="leave.type" name="type" required />
+
+      <label>Start Date</label>
+      <input type="date" [(ngModel)]="leave.start" name="start" required />
+
+      <label>End Date</label>
+      <input type="date" [(ngModel)]="leave.end" name="end" required />
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</div>

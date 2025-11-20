@@ -1,0 +1,37 @@
+<div class="page">
+  <nav class="navbar">
+    <div class="nav-left"><span class="brand">LeaveTracker (HR)</span></div>
+
+    <div class="nav-center">
+      <a routerLink="/hr-dashboard" routerLinkActive="active">All Employees</a>
+      <a routerLink="/hr-leave-requests" routerLinkActive="active">Leave Requests</a>
+    </div>
+
+    <div class="nav-right">
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <h2>All Employees</h2>
+    <table class="leave-table">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Leave Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="employees.length === 0">
+          <td colspan="3" class="no-data">No employees found.</td>
+        </tr>
+        <tr *ngFor="let emp of employees">
+          <td>{{ emp.id }}</td>
+          <td>{{ emp.username }}</td>
+          <td>{{ emp.leaveBalance }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

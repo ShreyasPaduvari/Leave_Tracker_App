@@ -1,0 +1,51 @@
+<div class="page">
+  <nav class="navbar">
+    <div class="nav-left"><span class="brand">LeaveTracker (HR)</span></div>
+
+    <div class="nav-center">
+      <a routerLink="/hr-dashboard" routerLinkActive="active">All Employees</a>
+      <a routerLink="/hr-leave-requests" routerLinkActive="active">Leave Requests</a>
+    </div>
+
+    <div class="nav-right">
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <h2>Pending Leave Requests</h2>
+
+    <table class="leave-table">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Type</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngIf="leaveRequests.length === 0">
+          <td colspan="6" class="no-data">No pending requests found.</td>
+        </tr>
+
+        <tr *ngFor="let leave of leaveRequests">
+          <td>{{ leave.userId }}</td>
+          <td>{{ leave.type }}</td>
+          <td>{{ leave.start }}</td>
+          <td>{{ leave.end }}</td>
+          <td [ngClass]="leave.status.toLowerCase()">{{ leave.status }}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="approve-btn" (click)="updateStatus(leave.id, 'Approved')">Approve</button>
+              <button class="reject-btn" (click)="updateStatus(leave.id, 'Rejected')">Reject</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

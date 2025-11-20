@@ -1,0 +1,157 @@
+/* 🌙 Background and Font */
+body {
+  background-color: #0b132b;
+  color: white;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+}
+
+/* 🌈 Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(45deg, #4e9af1, #9c27b0);
+  padding: 12px 40px;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Navbar elements */
+.nav-left .brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-center {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.nav-center a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Logout button (white & clean) */
+.logout-btn {
+  background: white;
+  color: #9c27b0;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #f2e4ff;
+  transform: scale(1.03);
+}
+
+/* 📄 Page layout */
+.page {
+  min-height: calc(100vh - 60px);
+  padding-top: 80px; /* slightly reduced */
+  padding-bottom: 30px; /* reduced bottom padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* 🧑‍💼 Employee Info Box — compact height & clean width */
+.user-info {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 40px; /* reduced vertical + horizontal padding */
+  width: 92vw; /* matches desired stretch between red marks */
+  margin: 0 auto 25px auto; /* centers horizontally */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  color: white;
+  text-align: left;
+}
+
+
+.user-info p,
+.user-info strong {
+  color: white;
+}
+
+
+/* 📦 Dashboard Container */
+.dashboard-container {
+  width: 100%;
+  text-align: center;
+}
+
+
+
+/* 🧾 Leave History Table */
+h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+/* 🧾 Leave History Table — aligned with the container width */
+.leave-table {
+  width: 92vw; /* same width as user-info */
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.leave-table th,
+.leave-table td {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px 18px; /* increased padding */
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+}
+
+.leave-table th {
+  background-color: rgba(255, 255, 255, 0.1); /* slightly brighter header */
+  font-weight: 600;
+}
+
+.leave-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ✅ Status Colors */
+.approved {
+  color: #00c853;
+}
+
+.rejected {
+  color: #ff3d00;
+}
+
+.no-data {
+  margin-top: 20px;
+  color: #ccc;
+  font-style: italic;
+}
