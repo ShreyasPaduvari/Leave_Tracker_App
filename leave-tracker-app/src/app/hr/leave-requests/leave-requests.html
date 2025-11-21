@@ -28,11 +28,12 @@
       </thead>
 
       <tbody>
-        <tr *ngIf="leaveRequests.length === 0">
+        <!-- Display paginated rows -->
+        <tr *ngIf="paginatedLeaveRequests.length === 0">
           <td colspan="6" class="no-data">No pending requests found.</td>
         </tr>
 
-        <tr *ngFor="let leave of leaveRequests">
+        <tr *ngFor="let leave of paginatedLeaveRequests">
           <td>{{ leave.userId }}</td>
           <td>{{ leave.type }}</td>
           <td>{{ leave.start }}</td>
@@ -47,5 +48,50 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- Pagination and Entries Selector -->
+    <div class="table-bottom-controls">
+        <div class="pagination">
+            <button (click)="goToPage(1)" [disabled]="currentPage === 1 || totalPages === 0">&laquo;</button>
+            <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1 || totalPages === 0">&lt;</button>
+
+            <ng-container *ngIf="totalPages > 0">
+                <!-- First page button and first ellipsis -->
+                <ng-container *ngIf="visiblePageNumbers[0] > 1">
+                    <button (click)="goToPage(1)" [class.active]="currentPage === 1">1</button>
+                    <span *ngIf="visiblePageNumbers[0] > 2" class="ellipsis">...</span>
+                </ng-container>
+
+                <!-- Visible page numbers -->
+                <button *ngFor="let page of visiblePageNumbers"
+                        (click)="goToPage(page)"
+                        [class.active]="currentPage === page">
+                    {{ page }}
+                </button>
+
+                <!-- Last ellipsis and last page button -->
+                <ng-container *ngIf="visiblePageNumbers[visiblePageNumbers.length - 1] < totalPages">
+                    <span *ngIf="visiblePageNumbers[visiblePageNumbers.length - 1] < totalPages - 1" class="ellipsis">...</span>
+                    <button (click)="goToPage(totalPages)" [class.active]="currentPage === totalPages">{{ totalPages }}</button>
+                </ng-container>
+            </ng-container>
+
+            <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages || totalPages === 0">&gt;</button>
+            <button (click)="goToPage(totalPages)" [disabled]="currentPage === totalPages || totalPages === 0">&raquo;</button>
+        </div>
+        <div class="entries-selector">
+            <label for="showEntries">show</label>
+            <select id="showEntries" (change)="onEntriesPerPageChange($event)" [ngModel]="entriesPerPage">
+                <option value="1">1</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="all">All</option>
+            </select>
+            <span>entries</span>
+        </div>
+    </div>
   </div>
 </div>

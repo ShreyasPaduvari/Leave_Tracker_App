@@ -19,6 +19,55 @@
       "password": "alex123",
       "role": "employee",
       "leaveBalance": 17
+    },
+    {
+      "id": "202",
+      "username": "maria",
+      "password": "maria202",
+      "role": "employee",
+      "leaveBalance": 20
+    },
+    {
+      "id": "303",
+      "username": "john",
+      "password": "john303",
+      "role": "employee",
+      "leaveBalance": 20
+    },
+    {
+      "id": "505",
+      "username": "rohan",
+      "password": "rohan505",
+      "role": "employee",
+      "leaveBalance": 15
+    },
+    {
+      "id": "606",
+      "username": "david",
+      "password": "david606",
+      "role": "employee",
+      "leaveBalance": 18
+    },
+    {
+      "id": "707",
+      "username": "nisha",
+      "password": "nisha707",
+      "role": "employee",
+      "leaveBalance": 20
+    },
+    {
+      "id": "808",
+      "username": "arun",
+      "password": "arun808",
+      "role": "employee",
+      "leaveBalance": 18
+    },
+    {
+      "id": "909",
+      "username": "meera",
+      "password": "meera909",
+      "role": "employee",
+      "leaveBalance": 20
     }
   ]
 }

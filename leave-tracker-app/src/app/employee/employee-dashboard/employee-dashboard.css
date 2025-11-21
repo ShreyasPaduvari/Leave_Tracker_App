@@ -1,17 +1,19 @@
+/* employee-dashboard.css */
+
 /* 🌙 Background and Font */
 body {
-  background-color: #0b132b;
+  /* REMOVED: background-color: #0b132b; */ /* Let global.css handle the background gradient */
   color: white;
   font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
+  /* REMOVED: min-height: 100vh; */ /* This should be handled by global.css for consistency */
 }
 
 /* 🌈 Navbar */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(45deg, #4e9af1, #9c27b0);
+  background: #205295;
   padding: 12px 40px;
   height: 60px;
   position: fixed;
@@ -23,6 +25,10 @@ body {
 }
 
 /* Navbar elements */
+.nav-left {
+  margin-right: auto;
+}
+
 .nav-left .brand {
   font-size: 1.5rem;
   font-weight: bold;
@@ -31,26 +37,37 @@ body {
 
 .nav-center {
   display: flex;
-  gap: 35px;
+  gap: 20px;
 }
 
+/* Styles for Home and Apply Leave links ONLY */
 .nav-center a {
   text-decoration: none;
-  color: white;
+  color: #fff;
   font-weight: 500;
   font-size: 1rem;
+  border: 1px solid #a7c4ed;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .nav-center a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: rgba(167, 196, 237, 0.2);
+  border-color: #fff;
+}
+
+.nav-right {
+  margin-left: auto;
 }
 
 /* ✅ Logout button (white & clean) */
 .logout-btn {
   background: white;
-  color: #9c27b0;
+  color: #205295;
   border: none;
-  padding: 8px 18px;
+  padding: 6px 12px; /* Matched padding with nav links */
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
@@ -59,14 +76,13 @@ body {
 
 .logout-btn:hover {
   background-color: #f2e4ff;
-  transform: scale(1.03);
 }
 
 /* 📄 Page layout */
 .page {
-  min-height: calc(100vh - 60px);
-  padding-top: 80px; /* slightly reduced */
-  padding-bottom: 30px; /* reduced bottom padding */
+  min-height: calc(100vh - 60px); /* Ensures content area is at least full height minus navbar */
+  padding-top: 75px; /* ADJUSTED: Clears the 60px navbar + 15px extra space */
+  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,9 +93,9 @@ body {
 .user-info {
   background-color: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  padding: 10px 40px; /* reduced vertical + horizontal padding */
-  width: 92vw; /* matches desired stretch between red marks */
-  margin: 0 auto 25px auto; /* centers horizontally */
+  padding: 10px 40px;
+  width: 92vw;
+  margin: 0 auto 25px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,20 +106,16 @@ body {
   text-align: left;
 }
 
-
 .user-info p,
 .user-info strong {
   color: white;
 }
-
 
 /* 📦 Dashboard Container */
 .dashboard-container {
   width: 100%;
   text-align: center;
 }
-
-
 
 /* 🧾 Leave History Table */
 h2 {
@@ -126,14 +138,14 @@ h2 {
 .leave-table th,
 .leave-table td {
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 14px 18px; /* increased padding */
+  padding: 14px 18px;
   text-align: center;
   color: white;
   font-size: 1rem;
 }
 
 .leave-table th {
-  background-color: rgba(255, 255, 255, 0.1); /* slightly brighter header */
+  background-color: rgba(255, 255, 255, 0.1);
   font-weight: 600;
 }
 
@@ -141,17 +153,121 @@ h2 {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-/* ✅ Status Colors */
-.approved {
+/* ✅ Status Colors (Increased Specificity for robustness) */
+.leave-table td.approved {
   color: #00c853;
+  font-weight: 600;
 }
 
-.rejected {
+.leave-table td.rejected {
   color: #ff3d00;
+  font-weight: 600;
+}
+
+.leave-table td.pending {
+  color: #9e9e9e;
+  font-weight: 600;
 }
 
 .no-data {
   margin-top: 20px;
   color: #ccc;
   font-style: italic;
+}
+
+/* ---------------------------- */
+/* 🧾 Pagination and Entries Selector (ADDED DIRECTLY HERE) */
+/* ---------------------------- */
+/* Container for bottom controls (pagination and entries selector) */
+.dashboard-container .table-bottom-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  width: 92vw; /* Matched width with the table */
+  margin: 15px auto 0 auto; /* Centered horizontally, kept top margin */
+  box-sizing: border-box;
+}
+
+/* Show Entries Selector Styles */
+.dashboard-container .entries-selector {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #fff;
+  font-size: 10px;
+}
+
+.dashboard-container .entries-selector select {
+  padding: 5px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  margin: 0 2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.6-6.4H18.6c-5%200-9.3%201.8-12.9%205.4-3.6%203.6-5.4%207.8-5.4%2012.8%200%205%201.8%209.2%205.4%2012.8l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095.4a17.6%2017.6%200%200%200%205.4-12.8c0-5-1.8-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 8px;
+  padding-right: 20px;
+  font-size: 10px;
+}
+
+.dashboard-container .entries-selector select option {
+  background-color: #1e293b;
+  color: #fff;
+  font-size: 10px;
+}
+
+/* Pagination styles */
+.dashboard-container .pagination {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.dashboard-container .pagination button {
+  background-color: #2d3748;
+  color: #e2e8f0;
+  border: 1px solid #4a5568;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+  min-width: 30px;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.dashboard-container .pagination button:hover:not(.active):not(:disabled) {
+  background-color: #334155;
+  color: #fff;
+  border-color: #00b0ff;
+}
+
+.dashboard-container .pagination button.active {
+  background-color: #00b0ff;
+  color: #fff;
+  border-color: #00b0ff;
+}
+
+.dashboard-container .pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+.dashboard-container .pagination span.ellipsis {
+  padding: 5px 0px;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  font-size: 13px;
 }

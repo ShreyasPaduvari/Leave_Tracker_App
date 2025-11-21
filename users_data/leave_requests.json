@@ -13,19 +13,83 @@
       "id": "975a",
       "userId": "101",
       "type": "Sick Leave",
-      "start": "2025-11-10",
-      "end": "2025-11-10",
-      "status": "Approved",
-      "balanceAdjusted": true
+      "start": "2025-11-12",
+      "end": "2025-11-12",
+      "status": "Pending",
+      "balanceAdjusted": false
     },
     {
       "id": "b90c",
       "userId": "3558",
-      "type": "Casual leave",
+      "type": "Casual Leave",
       "start": "2025-11-10",
       "end": "2025-11-12",
       "status": "Approved",
       "balanceAdjusted": true
+    },
+
+    {
+      "id": "2f11",
+      "userId": 202,
+      "type": "Earned Leave",
+      "start": "2025-11-15",
+      "end": "2025-11-16",
+      "status": "Pending",
+      "balanceAdjusted": false
+    },
+    {
+      "id": "3a45",
+      "userId": 303,
+      "type": "Sick Leave",
+      "start": "2025-11-20",
+      "end": "2025-11-20",
+      "status": "Rejected",
+      "balanceAdjusted": false
+    },
+    {
+      "id": "6f33",
+      "userId": 505,
+      "type": "Paternity Leave",
+      "start": "2025-11-05",
+      "end": "2025-11-09",
+      "status": "Approved",
+      "balanceAdjusted": true
+    },
+    {
+      "id": "8e44",
+      "userId": 606,
+      "type": "Sick Leave",
+      "start": "2025-11-18",
+      "end": "2025-11-19",
+      "status": "Approved",
+      "balanceAdjusted": true
+    },
+    {
+      "id": "10aa",
+      "userId": 808,
+      "type": "Earned Leave",
+      "start": "2025-12-05",
+      "end": "2025-12-06",
+      "status": "Approved",
+      "balanceAdjusted": true
+    },
+    {
+      "id": "11bb",
+      "userId": 909,
+      "type": "Sick Leave",
+      "start": "2025-11-08",
+      "end": "2025-11-08",
+      "status": "Pending",
+      "balanceAdjusted": false
+    },
+    {
+      "id": "12cc",
+      "userId": 707,
+      "type": "Casual Leave",
+      "start": "2025-11-28",
+      "end": "2025-11-28",
+      "status": "Pending",
+      "balanceAdjusted": false
     }
   ]
 }

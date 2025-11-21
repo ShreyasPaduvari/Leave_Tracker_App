@@ -2,10 +2,8 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #0b132b; /* deep navy background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(160deg, #0b132b 0%, #0b132b 50%, #163e71 100%);
+
 }
 
 a {
@@ -14,7 +12,7 @@ a {
 }
 
 button {
-  background: linear-gradient(45deg, #4e9af1, #9c27b0);
+  background: #205295;
   color: white;
   border: none;
   border-radius: 5px;

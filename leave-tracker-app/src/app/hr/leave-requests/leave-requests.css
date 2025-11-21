@@ -1,16 +1,119 @@
+/* leave-requests.css */
+
+/*
+  IMPORTANT: This file imports employee-dashboard.css.
+  The 'body' styles are being defined here to ensure the gradient background
+  and min-height are correctly applied, overriding any less specific 'body'
+  rules from imported stylesheets or global styles.
+  It is generally better to define 'body' styles in a single global stylesheet
+  (e.g., styles.css) and ensure 'html' also has height: 100%.
+*/
 @import '../../employee/employee-dashboard/employee-dashboard.css';
 
-/* Action button container to space buttons neatly */
+/* ---------------------------- */
+/* 🌙 Global Styles for Body (Ensuring gradient and full height) */
+/* ---------------------------- */
+/* This rule is placed here to ensure it takes precedence for this component.
+   Ideally, this would be in a global styles.css. */
+body {
+  background: linear-gradient(160deg, #0b132b 0%, #0b132b 85%, #163e71 100%);
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: white;
+  min-height: 100vh; /* Ensures body always takes at least full viewport height */
+}
+
+/* CRITICAL: Ensure your global styles.css (or similar) has this: */
+/* html { height: 100%; } */
+
+
+/* ---------------------------- */
+/* 🌈 Navbar Specific Styles */
+/* ---------------------------- */
+/* Navbar elements - positioning for centering nav-center */
+.nav-left {
+  margin-right: auto; /* Pushes this to the left and creates space to its right */
+}
+
+.nav-left .brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-center {
+  display: flex;
+  gap: 20px; /* Reduced gap between Home and Apply Leave links */
+  /* The auto margins on nav-left and nav-right will naturally center this block */
+}
+
+/* Styles for "All Employees" and "Leave Requests" links ONLY */
+.nav-center a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid #a7c4ed; /* More visible light blue border */
+  padding: 6px 12px; /* Added padding for better appearance with border */
+  border-radius: 5px; /* Optional: Rounded corners for the border */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-center a:hover {
+  text-decoration: none;
+  background-color: rgba(167, 196, 237, 0.2); /* Subtle transparent light blue background on hover */
+  border-color: #fff; /* White border on hover for better contrast */
+}
+
+.nav-right {
+  margin-left: auto; /* Pushes this to the right and creates space to its left */
+}
+
+/* ✅ Logout button - original style, matched size */
+.logout-btn {
+  background: white;
+  color: #205295;
+  border: none; /* Keep original: no border */
+  padding: 8px 18px; /* Matched padding with nav links */
+  border-radius: 8px; /* Keep original: slightly more rounded */
+  font-weight: 600; /* Keep original: bolder text */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #f2e4ff;
+}
+
+
+/* ---------------------------- */
+/* 🧩 Page layout - Adjusted for top alignment */
+/* ---------------------------- */
+/* The .page container itself */
+.page {
+  /* min-height, padding-bottom, flex-direction, box-sizing
+     should be defined in employee-dashboard.css or similar global file. */
+  display: flex;
+  align-items: flex-start; /* CHANGED: Aligns content to the top */
+  justify-content: center; /* Horizontally centers its content */
+  padding-top: 75px; /* ADJUSTED: Clears the 60px navbar + 15px extra space */
+  /* Ensure this .page also stretches to contain its content */
+  min-height: calc(100vh - 60px); /* This should allow it to stretch if content overflows */
+}
+
+/* ---------------------------- */
+/* 📋 Table Action Buttons */
+/* ---------------------------- */
 .action-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* 👈 Creates space between Approve and Reject buttons */
+  gap: 10px; /* Creates space between Approve and Reject buttons */
 }
 
 /* Approve / Reject button styles */
 .approve-btn {
-  background-color: #4CAF50;
+  background-color: #4CAF50; /* Green */
   border: none;
   color: white;
   padding: 5px 12px;
@@ -21,7 +124,7 @@
 }
 
 .reject-btn {
-  background-color: #e74c3c;
+  background-color: #e74c3c; /* Red */
   border: none;
   color: white;
   padding: 5px 12px;
@@ -37,4 +140,121 @@
 
 .reject-btn:hover {
   background-color: #c0392b;
+}
+
+
+/* ---------------------------- */
+/* 🧾 Status Colors (Increased Specificity) */
+/* ---------------------------- */
+.leave-table td.approved { /* Added td. for higher specificity */
+  color: #00c853; /* Green for Approved */
+  font-weight: 600; /* Make it stand out */
+}
+
+.leave-table td.rejected { /* Added td. for higher specificity */
+  color: #ff3d00; /* Red for Rejected */
+  font-weight: 600; /* Make it stand out */
+}
+
+.leave-table td.pending { /* Style for Pending status */
+  color: #9e9e9e; /* Grey for Pending */
+  font-weight: 600; /* Match font weight */
+}
+
+
+/* ---------------------------- */
+/* 🧾 Pagination and Entries Selector */
+/* ---------------------------- */
+/* Container for bottom controls (pagination and entries selector) */
+.dashboard-container .table-bottom-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  width: 92vw; /* Matched width with the table */
+  margin: 15px auto 0 auto; /* Centered horizontally, kept top margin */
+  box-sizing: border-box;
+}
+
+/* Show Entries Selector Styles */
+.dashboard-container .entries-selector {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #fff;
+  font-size: 10px;
+}
+
+.dashboard-container .entries-selector select {
+  padding: 5px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  margin: 0 2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.6-6.4H18.6c-5%200-9.3%201.8-12.9%205.4-3.6%203.6-5.4%207.8-5.4%2012.8%200%205%201.8%209.2%205.4%2012.8l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095.4a17.6%2017.6%200%200%200%205.4-12.8c0-5-1.8-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 8px;
+  padding-right: 20px;
+  font-size: 10px;
+}
+
+.dashboard-container .entries-selector select option {
+  background-color: #1e293b;
+  color: #fff;
+  font-size: 10px;
+}
+
+/* Pagination styles */
+.dashboard-container .pagination {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.dashboard-container .pagination button {
+  background-color: #2d3748;
+  color: #e2e8f0;
+  border: 1px solid #4a5568;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+  min-width: 30px;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.dashboard-container .pagination button:hover:not(.active):not(:disabled) {
+  background-color: #334155;
+  color: #fff;
+  border-color: #00b0ff;
+}
+
+.dashboard-container .pagination button.active {
+  background-color: #00b0ff;
+  color: #fff;
+  border-color: #00b0ff;
+}
+
+.dashboard-container .pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+.dashboard-container .pagination span.ellipsis {
+  padding: 5px 0px;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  font-size: 13px;
 }

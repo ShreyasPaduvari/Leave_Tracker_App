@@ -36,7 +36,7 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background: linear-gradient(45deg, #4e9af1, #9c27b0);
+  background: #205295;
   border: none;
   border-radius: 5px;
   color: white;
@@ -53,7 +53,7 @@ button:hover { opacity: 0.9; }
   margin-top: 20px;
 }
 .signup-text a {
-  color: #9c27b0;
+  color: #205295;
   text-decoration: none;
 }
 .error {
