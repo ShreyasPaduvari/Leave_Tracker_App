@@ -1,4 +1,4 @@
-.login-page {
+.login-page { 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,10 +8,11 @@
 .login-container {
   background: white;
   padding: 40px 35px;
-  width: 350px;
+  width: 380px;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   color: #333;
+  box-sizing: border-box;
 }
 
 h2 {
@@ -27,15 +28,17 @@ label {
 
 input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 15px;
 }
 
 button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background: #205295;
   border: none;
   border-radius: 5px;
@@ -43,19 +46,25 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
-  margin-top: 10px;
+  font-size: 15px;
+  margin-top: 5px;
 }
-button:hover { opacity: 0.9; }
+
+button:hover { 
+  opacity: 0.9; 
+}
 
 .signup-text {
   text-align: center;
   font-size: 14px;
   margin-top: 20px;
 }
+
 .signup-text a {
   color: #205295;
   text-decoration: none;
 }
+
 .error {
   color: red;
   font-size: 12px;
